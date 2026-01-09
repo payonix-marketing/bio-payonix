@@ -71,15 +71,7 @@ export const PLATFORM_CONFIGS: Record<string, PlatformConfig> = {
   tiktok: {
     name: 'TikTok',
     slug: '/tiktok',
-    customLinks: {
-      instagram: {
-        id: 'tiktok',
-        label: 'TikTok',
-        subLabel: '@payonix.official',
-        url: 'https://www.tiktok.com/@payonix.official?lang=en',
-        icon: Music,
-      }
-    }
+    customLinks: {}  // Keep all links as default for /tiktok
   },
   instagram: {
     name: 'Instagram',
