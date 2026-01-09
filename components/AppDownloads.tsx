@@ -1,7 +1,10 @@
 import React from 'react';
-import { APP_DOWNLOAD_URL } from '../constants';
 
-export const AppDownloads: React.FC = () => {
+interface AppDownloadsProps {
+  appDownloadUrl: string;
+}
+
+export const AppDownloads: React.FC<AppDownloadsProps> = ({ appDownloadUrl }) => {
   return (
     <div className="w-full mb-6 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
       <div className="flex flex-col items-center text-center">
@@ -12,7 +15,7 @@ export const AppDownloads: React.FC = () => {
         
         <div className="flex flex-row justify-center items-center gap-4 w-full px-2">
           <a 
-            href={APP_DOWNLOAD_URL}
+            href={appDownloadUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="transition-transform hover:scale-105 hover:opacity-90 w-[140px] h-[48px] flex items-center justify-center bg-black rounded-lg border border-white/10 overflow-hidden"
@@ -26,7 +29,7 @@ export const AppDownloads: React.FC = () => {
           </a>
           
           <a 
-            href={APP_DOWNLOAD_URL}
+            href={appDownloadUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="transition-transform hover:scale-105 hover:opacity-90 w-[140px] h-[48px] flex items-center justify-center bg-black rounded-lg border border-white/10 overflow-hidden"

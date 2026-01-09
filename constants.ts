@@ -84,6 +84,7 @@ export const PLATFORM_CONFIGS: Record<string, PlatformConfig> = {
   instagram: {
     name: 'Instagram',
     slug: '/instagram',
+    appDownloadUrl: 'https://onelink.to/payonix',
     customLinks: {
       instagram: {
         id: 'tiktok',
@@ -112,4 +113,10 @@ export const getSocialLinksForPlatform = (platform: string): SocialLink[] => {
     }
     return link;
   });
+};
+
+// Function to get app download URL for a specific platform
+export const getAppDownloadUrlForPlatform = (platform: string): string => {
+  const config = PLATFORM_CONFIGS[platform] || PLATFORM_CONFIGS.default;
+  return config.appDownloadUrl || APP_DOWNLOAD_URL;
 };

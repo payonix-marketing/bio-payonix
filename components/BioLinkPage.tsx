@@ -4,12 +4,13 @@ import { Header } from './Header';
 import { ButtonCard } from './ButtonCard';
 import { AppDownloads } from './AppDownloads';
 import { Footer } from './Footer';
-import { getSocialLinksForPlatform } from '../constants';
+import { getSocialLinksForPlatform, getAppDownloadUrlForPlatform } from '../constants';
 
 const BioLinkPage: React.FC = () => {
   const { platform } = useParams<{ platform?: string }>();
   const currentPlatform = platform || 'default';
   const socialLinks = getSocialLinksForPlatform(currentPlatform);
+  const appDownloadUrl = getAppDownloadUrlForPlatform(currentPlatform);
 
   return (
     <div className="min-h-screen w-full bg-[#0B0F19] relative overflow-hidden">
@@ -24,7 +25,7 @@ const BioLinkPage: React.FC = () => {
 
         <div className="flex flex-col w-full z-10">
           {/* App Download Section */}
-          <AppDownloads />
+          <AppDownloads appDownloadUrl={appDownloadUrl} />
 
           {/* Contact Methods Heading */}
           <div className="w-full flex justify-start mb-2 animate-fade-in-up" style={{ animationDelay: '300ms' }}>

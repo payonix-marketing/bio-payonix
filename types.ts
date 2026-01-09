@@ -26,4 +26,5 @@ export interface PlatformConfig {
   name: string;
   slug: string;
   customLinks?: Partial<Record<string, Partial<SocialLink>>>;
+  appDownloadUrl?: string;
 }
