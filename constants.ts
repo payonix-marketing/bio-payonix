@@ -8,6 +8,7 @@ import {
 import { Music } from 'lucide-react'; // TikTok icon
 import { SocialLink, ContactDetails, PlatformConfig } from './types';
 
+// App download URL configuration
 export const APP_DOWNLOAD_URL = "https://onelink.to/pynxtt";
 
 export const CONTACT_INFO: ContactDetails = {
