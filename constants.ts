@@ -5,7 +5,8 @@ import {
   MessageCircle,
   Globe
 } from 'lucide-react';
-import { SocialLink, ContactDetails } from './types';
+import { Music } from 'lucide-react'; // TikTok icon
+import { SocialLink, ContactDetails, PlatformConfig } from './types';
 
 export const APP_DOWNLOAD_URL = "https://onelink.to/pynxtt";
 
@@ -59,3 +60,48 @@ export const SOCIAL_LINKS: SocialLink[] = [
     variant: 'glass'
   }
 ];
+
+// Platform-specific configurations
+export const PLATFORM_CONFIGS: Record<string, PlatformConfig> = {
+  default: {
+    name: 'Default',
+    slug: '/',
+    customLinks: {}
+  },
+  tiktok: {
+    name: 'TikTok',
+    slug: '/tiktok',
+    customLinks: {
+      instagram: {
+        id: 'tiktok',
+        label: 'TikTok',
+        subLabel: '@payonix.official',
+        url: 'https://www.tiktok.com/@payonix.official?lang=en',
+        icon: Music,
+      }
+    }
+  },
+  instagram: {
+    name: 'Instagram',
+    slug: '/instagram',
+    customLinks: {}
+  }
+};
+
+// Function to get social links for a specific platform
+export const getSocialLinksForPlatform = (platform: string): SocialLink[] => {
+  const config = PLATFORM_CONFIGS[platform] || PLATFORM_CONFIGS.default;
+  
+  return SOCIAL_LINKS.map(link => {
+    const customLink = config.customLinks?.[link.id];
+    if (customLink) {
+      return {
+        ...link,
+        ...customLink,
+        // Ensure icon is properly assigned
+        icon: customLink.icon || link.icon
+      } as SocialLink;
+    }
+    return link;
+  });
+};

@@ -21,3 +21,9 @@ export interface DownloadLink {
   platform: 'ios' | 'android';
   url: string;
 }
+
+export interface PlatformConfig {
+  name: string;
+  slug: string;
+  customLinks?: Partial<Record<string, Partial<SocialLink>>>;
+}
